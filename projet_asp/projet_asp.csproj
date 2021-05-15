@@ -122,7 +122,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdreController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\VirementController.cs" />
+=======
+    <Compile Include="Controllers\UserController.cs" />
+>>>>>>> 02fd5a060f0a6090e2cc3591598f97ca352f5405
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2017,9 +2021,14 @@
     <Content Include="Scripts\vendor\jquery\jquery.min.map" />
     <Content Include="Scripts\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Ordre\listMission.cshtml" />
     <Content Include="Views\Virement\ListVirement.cshtml" />
     <Content Include="Views\Shared\MenuLayout.cshtml" />
+=======
+    <Content Include="Views\Ordre\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+>>>>>>> 02fd5a060f0a6090e2cc3591598f97ca352f5405
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
