@@ -8,8 +8,8 @@ namespace projet_asp.Controllers
 {
     public class OrdreController : Controller
     {
-        // GET: Ordre
-        public ActionResult Index()
+        // GET: liste des missions
+        public ActionResult listMission()
         {
             return View();
         }
