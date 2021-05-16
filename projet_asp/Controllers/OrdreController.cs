@@ -8,12 +8,12 @@ namespace projet_asp.Controllers
 {
     public class OrdreController : Controller
     {
-        // GET: liste des missions
-        public ActionResult listMission()
+        // GET: Ordre/Index
+
+        public ActionResult Index()
         {
             return View();
         }
-
         // GET: Ordre/Details/5
         public ActionResult Details(int id)
         {
