@@ -20,10 +20,21 @@
     <!-- Custom styles for this page -->
     <link href="../Scripts/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <!--link for form template-->
+    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../Content/assets/images/favicon.png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../Content/assets/libs/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../Content/assets/libs/jquery-minicolors/jquery.minicolors.css">
+    <link rel="stylesheet" type="text/css"
+          href="../Content/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="../Content/assets/libs/quill/dist/quill.snow.css">
+    
 </head>
 
 <body id="page-top">
-    <div id="wrapper">
+    <div id="wrapper" width="100%">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -50,7 +61,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-            
+
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -64,7 +75,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
 
                         <a class="collapse-item" href="/Ordre/Index">Liste des ordres</a>
-                        <a class="collapse-item" href="cards.html">Nouveau ordres</a>
+                        <a class="collapse-item" href="/Ordre/Create">Nouveau ordres</a>
                     </div>
                 </div>
             </li>
@@ -115,29 +126,99 @@
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
-             
+
 
         </ul>
         <!-- End of Sidebar -->
-              @RenderBody();
-   </div>
+        @RenderBody()
+    </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
-        <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
+    <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="../Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="../Scripts/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../Scripts/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="../Scripts/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../Scripts/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="../Scripts/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="../Scripts/demo/datatables-demo.js"></script>
-    
-    </body>
+    <!-- Page level custom scripts -->
+    <script src="../Scripts/demo/datatables-demo.js"></script>
+
+    <!-- Scripts for form template-->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="../../dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../../dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../../dist/js/custom.min.js"></script>
+    <!-- This Page JS -->
+    <script src="../Content/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <script src="../Content/dist/js/pages/mask/mask.init.js"></script>
+    <script src="../Content/assets/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="../Content/assets/libs/select2/dist/js/select2.min.js"></script>
+    <script src="../Content/assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
+    <script src="../Content/assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
+    <script src="../Content/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
+    <script src="../Content/assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
+    <script src="../Content/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../Content/assets/libs/quill/dist/quill.min.js"></script>
+    <script>
+        //***********************************//
+        // For select 2
+        //***********************************//
+        $(".select2").select2();
+
+        /*colorpicker*/
+        $('.demo').each(function () {
+            //
+            // Dear reader, it's actually very easy to initialize MiniColors. For example:
+            //
+            //  $(selector).minicolors();
+            //
+            // The way I've done it below is just for the demo, so don't get confused
+            // by it. Also, data- attributes aren't supported at this time...they're
+            // only used for this demo.
+            //
+            $(this).minicolors({
+                control: $(this).attr('data-control') || 'hue',
+                position: $(this).attr('data-position') || 'bottom left',
+
+                change: function (value, opacity) {
+                    if (!value) return;
+                    if (opacity) value += ', ' + opacity;
+                    if (typeof console === 'object') {
+                        console.log(value);
+                    }
+                },
+                theme: 'bootstrap'
+            });
+
+        });
+        /*datwpicker*/
+        jQuery('.mydatepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+    </script>
+
+</body>
 
