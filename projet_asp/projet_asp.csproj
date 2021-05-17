@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Login_registerController.cs" />
     <Compile Include="Controllers\OrdreController.cs" />
     <Compile Include="Controllers\VirementController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -3107,6 +3108,9 @@
     <Content Include="Views\Ordre\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Ordre\Create.cshtml" />
+    <Content Include="Views\Login_register\Login.cshtml" />
+    <Content Include="Views\Login_register\Register.cshtml" />
+    <Content Include="Views\User\AddUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
