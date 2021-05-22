@@ -256,3 +256,175 @@ C:\Users\MON PC\Desktop\c# et la programmation .net\newProjetAsp\Projet-ASP\proj
 C:\Users\MON PC\Desktop\c# et la programmation .net\newProjetAsp\Projet-ASP\projet_asp\obj\Debug\projet_asp.csproj.CopyComplete
 C:\Users\MON PC\Desktop\c# et la programmation .net\newProjetAsp\Projet-ASP\projet_asp\obj\Debug\projet_asp.dll
 C:\Users\MON PC\Desktop\c# et la programmation .net\newProjetAsp\Projet-ASP\projet_asp\obj\Debug\projet_asp.pdb
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\projet_asp.dll.config
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\projet_asp.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\projet_asp.pdb
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\csc.exe
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\csc.exe.config
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\csc.rsp
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\csi.exe
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\csi.exe.config
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\csi.rsp
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.AppContext.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Console.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.IO.Compression.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Net.Http.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Net.Sockets.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.ValueTuple.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Xml.XPath.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\vbc.exe
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\vbc.exe.config
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\vbc.rsp
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\VBCSCompiler.exe
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\Antlr3.Runtime.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\Newtonsoft.Json.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Helpers.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Mvc.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Optimization.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Razor.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.WebPages.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.WebPages.Razor.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\WebGrease.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Helpers.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Mvc.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Optimization.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.Razor.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.WebPages.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\System.Web.WebPages.Razor.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\Newtonsoft.Json.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\Antlr3.Runtime.pdb
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\fr\System.Web.Helpers.resources.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\fr\System.Web.Mvc.resources.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\fr\System.Web.Optimization.resources.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\fr\System.Web.Razor.resources.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\fr\System.Web.WebPages.resources.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\obj\Debug\projet_asp.csprojAssemblyReference.cache
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\obj\Debug\projet_asp.csproj.CoreCompileInputs.cache
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\obj\Debug\projet_asp.csproj.CopyComplete
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\obj\Debug\projet_asp.dll
+C:\Users\dell\Desktop\projet asp final\Projet-ASP\projet_asp\obj\Debug\projet_asp.pdb
+C:\git\Projet-ASP\projet_asp\bin\projet_asp.dll.config
+C:\git\Projet-ASP\projet_asp\bin\projet_asp.dll
+C:\git\Projet-ASP\projet_asp\bin\projet_asp.pdb
+C:\git\Projet-ASP\projet_asp\bin\roslyn\csc.exe
+C:\git\Projet-ASP\projet_asp\bin\roslyn\csc.exe.config
+C:\git\Projet-ASP\projet_asp\bin\roslyn\csc.rsp
+C:\git\Projet-ASP\projet_asp\bin\roslyn\csi.exe
+C:\git\Projet-ASP\projet_asp\bin\roslyn\csi.exe.config
+C:\git\Projet-ASP\projet_asp\bin\roslyn\csi.rsp
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\git\Projet-ASP\projet_asp\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.AppContext.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Collections.Immutable.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Console.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Globalization.Calendars.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.IO.Compression.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.IO.FileSystem.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Net.Http.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Net.Sockets.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Reflection.Metadata.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.ValueTuple.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Xml.XPath.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\git\Projet-ASP\projet_asp\bin\roslyn\vbc.exe
+C:\git\Projet-ASP\projet_asp\bin\roslyn\vbc.exe.config
+C:\git\Projet-ASP\projet_asp\bin\roslyn\vbc.rsp
+C:\git\Projet-ASP\projet_asp\bin\roslyn\VBCSCompiler.exe
+C:\git\Projet-ASP\projet_asp\bin\roslyn\VBCSCompiler.exe.config
+C:\git\Projet-ASP\projet_asp\bin\Antlr3.Runtime.dll
+C:\git\Projet-ASP\projet_asp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\git\Projet-ASP\projet_asp\bin\Microsoft.Web.Infrastructure.dll
+C:\git\Projet-ASP\projet_asp\bin\Newtonsoft.Json.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Helpers.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Mvc.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Optimization.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Razor.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.WebPages.Deployment.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.WebPages.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.WebPages.Razor.dll
+C:\git\Projet-ASP\projet_asp\bin\WebGrease.dll
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Helpers.xml
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Mvc.xml
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Optimization.xml
+C:\git\Projet-ASP\projet_asp\bin\System.Web.Razor.xml
+C:\git\Projet-ASP\projet_asp\bin\System.Web.WebPages.xml
+C:\git\Projet-ASP\projet_asp\bin\System.Web.WebPages.Deployment.xml
+C:\git\Projet-ASP\projet_asp\bin\System.Web.WebPages.Razor.xml
+C:\git\Projet-ASP\projet_asp\bin\Newtonsoft.Json.xml
+C:\git\Projet-ASP\projet_asp\bin\Antlr3.Runtime.pdb
+C:\git\Projet-ASP\projet_asp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\git\Projet-ASP\projet_asp\bin\fr\System.Web.Helpers.resources.dll
+C:\git\Projet-ASP\projet_asp\bin\fr\System.Web.Mvc.resources.dll
+C:\git\Projet-ASP\projet_asp\bin\fr\System.Web.Optimization.resources.dll
+C:\git\Projet-ASP\projet_asp\bin\fr\System.Web.Razor.resources.dll
+C:\git\Projet-ASP\projet_asp\bin\fr\System.Web.WebPages.resources.dll
+C:\git\Projet-ASP\projet_asp\bin\fr\System.Web.WebPages.Deployment.resources.dll
+C:\git\Projet-ASP\projet_asp\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.csprojAssemblyReference.cache
+C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.csproj.CoreCompileInputs.cache
+C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.csproj.CopyComplete
+C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.dll
+C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.pdb

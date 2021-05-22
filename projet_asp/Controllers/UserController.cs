@@ -14,6 +14,14 @@ namespace projet_asp.Controllers
             return View();
         }
 
+        //add new user 
+
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+
+
         // GET: User/Details/5
         public ActionResult Details(int id)
         {
