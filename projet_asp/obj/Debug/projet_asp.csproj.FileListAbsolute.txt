@@ -428,3 +428,9 @@ C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.csproj.CoreCompileInputs.cache
 C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.csproj.CopyComplete
 C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.dll
 C:\git\Projet-ASP\projet_asp\obj\Debug\projet_asp.pdb
+C:\Users\Malika\Downloads\transfer.pcloud.cbQF2JEa\projet_asp\projet_asp\projet_asp\bin\EntityFramework.dll
+C:\Users\Malika\Downloads\transfer.pcloud.cbQF2JEa\projet_asp\projet_asp\projet_asp\bin\EntityFramework.SqlServer.dll
+C:\Users\Malika\Downloads\transfer.pcloud.cbQF2JEa\projet_asp\projet_asp\projet_asp\bin\EntityFramework.xml
+C:\Users\Malika\Downloads\transfer.pcloud.cbQF2JEa\projet_asp\projet_asp\projet_asp\bin\EntityFramework.SqlServer.xml
+C:\Users\Malika\Downloads\transfer.pcloud.cbQF2JEa\projet_asp\projet_asp\projet_asp\obj\Debug\projet_asp.Migrations.InitialCreate.resources
+C:\Users\Malika\Downloads\transfer.pcloud.cbQF2JEa\projet_asp\projet_asp\projet_asp\obj\Debug\projet_asp.csproj.GenerateResource.cache
