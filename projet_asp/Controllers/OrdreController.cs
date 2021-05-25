@@ -1,30 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using test_base_donnee_indemnite.Models;
 
 namespace projet_asp.Controllers
 {
     public class OrdreController : Controller
     {
-        // GET: Ordre/Index
+        private DbContextIndimnite db = new DbContextIndimnite();
 
+
+        // GET: Ordre/Index
         public ActionResult Index()
         {
-            return View();
+            return View(db.ordremission.ToList());
         }
-        // GET: Ordre/Details/5
-        public ActionResult Details(int id)
+         
+        public ActionResult Kilo(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            OrdreMission ordreMission = db.ordremission.Find(id);
+            if (ordreMission == null)
+            {
+                return HttpNotFound();
+            }
+            ViewData["mois"] = ordreMission.dateDepart.Month.ToString("MMMM");
+            DateTime now = DateTime.Now;
+            ViewData["date"] = now.ToString("MM/dd/yyyy"); 
+            ViewData["taux"] = 1.2;
+            if (ordreMission.nombreCheuvaux > 6 && ordreMission.nombreCheuvaux < 10)
+            {
+                ViewData["taux"] = 1.75;
+            }
+            else
+            {
+                ViewData["taux"] =2.30;
+            }
+            ViewData["total"] = (double)ViewData["taux"] * (int)ordreMission.trajet.distance * 2;
+            return View(ordreMission);
         }
 
-        // GET: Ordre/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+     
 
         // POST: Ordre/Create
         [HttpPost]

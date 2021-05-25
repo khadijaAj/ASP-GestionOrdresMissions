@@ -27,5 +27,7 @@ namespace test_base_donnee_indemnite.Models
         public DbSet<ServiceEconomique> serviceeconomique { get; set; }
         public DbSet<ServicePersonnel> servicepersonnel { get; set; }
         public DbSet<Parameter> parametre { get; set; }
+
+        public System.Data.Entity.DbSet<test_base_donnee_indemnite.Models.OrdrePayment> OrdrePayments { get; set; }
     }
 }

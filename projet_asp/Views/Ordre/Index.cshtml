@@ -1,4 +1,12 @@
-﻿@{
+﻿@model IEnumerable<test_base_donnee_indemnite.Models.OrdreMission>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@{
     Layout = "~/Views/Shared/MenuLayout.cshtml";
 }
 
@@ -33,7 +41,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-      
+
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -270,182 +278,152 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Num</th>
-                                            <th>Date départ</th>
-                                            <th>Date d'arrivé</th>
-                                            <th>Trajet</th>
-                                            <th>Etat</th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.numero)
+                                            </th>
+
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.dateDepart)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.dateArrivee)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.heureDepart)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.heureArrivee)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.echlon)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.matricule)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.grade)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.objetDepart)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.moyenTransport)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.nombreCheuvaux)
+                                            </th>
                                             <th>Virement</th>
                                             <th>Kilométrage</th>
                                             <th>Déplacement</th>
                                             <th>PDF</th>
-
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Num</th>
-                                            <th>Date départ</th>
-                                            <th>Date d'arrivé</th>
-                                            <th>Trajet</th>
-                                            <th>Etat</th>
-                                            <th>Virement</th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.numero)
+                                            </th>
+
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.dateDepart)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.dateArrivee)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.heureDepart)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.heureArrivee)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.echlon)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.matricule)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.grade)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.objetDepart)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.moyenTransport)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.nombreCheuvaux)
+                                            </th>
+                                            <th>Modifier</th>
                                             <th>Kilométrage</th>
                                             <th>Déplacement</th>
                                             <th>PDF</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-icon-split">
-                                                    <span class="text">Virement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Kilométrage</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-icon-split">
-                                                    <span class="text">Déplacement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">PDF</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-icon-split">
-                                                    <span class="text">Virement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Kilométrage</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-icon-split">
-                                                    <span class="text">Déplacement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">PDF</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-icon-split">
-                                                    <span class="text">Virement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Kilométrage</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-icon-split">
-                                                    <span class="text">Déplacement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">PDF</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-icon-split">
-                                                    <span class="text">Virement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Kilométrage</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-icon-split">
-                                                    <span class="text">Déplacement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">PDF</span>
-                                                </a>
-                                            </td>
-                                        </tr>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.numero)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.dateDepart)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.dateArrivee)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.heureDepart)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.heureArrivee)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.echlon)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.matricule)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.grade)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.objetDepart)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.moyenTransport)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.nombreCheuvaux)
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary btn-icon-split">
+                                                        <span class="text">Modifier</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+
+                                                    @Html.ActionLink("Kilo", "Kilo", new { id = item.idOrdremission })
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning btn-icon-split">
+                                                        <span class="text">Déplacement</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info btn-icon-split">
+                                                        <span class="text">PDF</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>
-                                                <a href="#" class="btn btn-primary btn-icon-split">
-                                                    <span class="text">Virement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Kilométrage</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning btn-icon-split">
-                                                    <span class="text">Déplacement</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">PDF</span>
-                                                </a>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
