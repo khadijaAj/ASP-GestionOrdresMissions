@@ -62,9 +62,11 @@ namespace test_base_donnee_indemnite.Models
         public string anneediplome{ get; set; }
         public string photo { get; set; }
 
+
         public bool show1 { get; set; }
         public bool show2{ get; set; }
-        public string echelon { get; set; }
+        public int echelon { get; set; }
+        public int Echelle { get; set; }
 
         /***************Partie de recherche scientifique*********************/
         public string TypeqEntiterecherches { get; set; }//il s'agit de laboratoire ou équipe

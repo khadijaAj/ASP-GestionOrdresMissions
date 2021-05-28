@@ -135,9 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105221916332_InitialCreate.cs" />
-    <Compile Include="Migrations\202105221916332_InitialCreate.designer.cs">
-      <DependentUpon>202105221916332_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202105281353177_InitialCreate1.cs" />
+    <Compile Include="Migrations\202105281353177_InitialCreate1.Designer.cs">
+      <DependentUpon>202105281353177_InitialCreate1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cadre.cs" />
@@ -150,9 +150,9 @@
     <Compile Include="Models\OrdrePayment.cs" />
     <Compile Include="Models\OrdreVirement.cs" />
     <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Parametre_paiement.cs" />
+    <Compile Include="Models\Parametre_voiture.cs" />
     <Compile Include="Models\Personnel.cs" />
-    <Compile Include="Models\ServiceEconomique.cs" />
-    <Compile Include="Models\ServicePersonnel.cs" />
     <Compile Include="Models\Trajet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -3158,8 +3158,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105221916332_InitialCreate.resx">
-      <DependentUpon>202105221916332_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105281353177_InitialCreate1.resx">
+      <DependentUpon>202105281353177_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

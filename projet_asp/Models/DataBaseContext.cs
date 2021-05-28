@@ -24,8 +24,7 @@ namespace projet_asp.Models
         public DbSet<OrdrePaiement> ordrepaiement { get; set; }
         public DbSet<OrdreVirement> ordrevirement { get; set; }
         public DbSet<Trajet> trajet { get; set; }
-        public DbSet<ServiceEconomique> serviceeconomique { get; set; }
-        public DbSet<ServicePersonnel> servicepersonnel { get; set; }
+        public DbSet<Parametre_voiture> parametre_voiture { get; set; }
         public DbSet<Parameter> parametre { get; set; }
     }
 }

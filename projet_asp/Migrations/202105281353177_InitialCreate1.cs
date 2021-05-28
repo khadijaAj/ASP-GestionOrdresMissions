@@ -1,9 +1,9 @@
-﻿namespace projet_asp.Migrations
+namespace projet_asp.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialCreate1 : DbMigration
     {
         public override void Up()
         {
@@ -70,7 +70,8 @@
                         photo = c.String(),
                         show1 = c.Boolean(nullable: false),
                         show2 = c.Boolean(nullable: false),
-                        echelon = c.String(),
+                        echelon = c.Int(nullable: false),
+                        Echelle = c.Int(nullable: false),
                         TypeqEntiterecherches = c.String(),
                         Nomentiterecherches = c.String(),
                         Lieuentiterecherches = c.String(),
@@ -115,8 +116,7 @@
                     {
                         idOrdremission = c.Int(nullable: false, identity: true),
                         numero = c.String(),
-                        approvedByAdmin = c.Boolean(nullable: false),
-                        approvedBySP = c.Boolean(nullable: false),
+                        etat = c.Boolean(nullable: false),
                         dateDepart = c.DateTime(nullable: false),
                         dateArrivee = c.DateTime(nullable: false),
                         heureDepart = c.String(),
@@ -127,6 +127,7 @@
                         objetDepart = c.String(),
                         moyenTransport = c.String(),
                         nombreCheuvaux = c.Int(nullable: false),
+                        montant_total = c.Single(nullable: false),
                         personel_IdPers = c.Int(nullable: false),
                         trajet_id_trajet = c.Int(nullable: false),
                     })
@@ -189,41 +190,42 @@
                 .PrimaryKey(t => t.id_trajet);
             
             CreateTable(
+                "dbo.Parametre_paiement",
+                c => new
+                    {
+                        id_param_paiement = c.Int(nullable: false, identity: true),
+                        Art = c.Int(nullable: false),
+                        num1 = c.Int(nullable: false),
+                        num2 = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.id_param_paiement);
+            
+            CreateTable(
+                "dbo.Parametre_voiture",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        nombre_cheveau_min = c.Int(nullable: false),
+                        nombre_cheveau_max = c.Int(nullable: false),
+                        prix_par_km = c.Single(nullable: false),
+                    })
+                .PrimaryKey(t => t.id);
+            
+            CreateTable(
                 "dbo.Parameters",
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
                         nom = c.String(),
-                        valeur = c.String(),
+                        valeur1 = c.Int(nullable: false),
+                        valeur2 = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id);
-            
-            CreateTable(
-                "dbo.ServiceEconomique",
-                c => new
-                    {
-                        IdPers = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.IdPers)
-                .ForeignKey("dbo.Personnels", t => t.IdPers)
-                .Index(t => t.IdPers);
-            
-            CreateTable(
-                "dbo.ServicePersonnel",
-                c => new
-                    {
-                        IdPers = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.IdPers)
-                .ForeignKey("dbo.Personnels", t => t.IdPers)
-                .Index(t => t.IdPers);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.ServicePersonnel", "IdPers", "dbo.Personnels");
-            DropForeignKey("dbo.ServiceEconomique", "IdPers", "dbo.Personnels");
             DropForeignKey("dbo.OrdreMissions", "trajet_id_trajet", "dbo.Trajets");
             DropForeignKey("dbo.OrdreMissions", "personel_IdPers", "dbo.Personnels");
             DropForeignKey("dbo.OrdreVirements", "IdOrdreVirement", "dbo.OrdrePayments");
@@ -235,8 +237,6 @@
             DropForeignKey("dbo.Personnels", "Corps_Idcorps", "dbo.Corps");
             DropForeignKey("dbo.Personnels", "Cadre_IdCadre", "dbo.Cadres");
             DropForeignKey("dbo.Cadres", "corps_Idcorps", "dbo.Corps");
-            DropIndex("dbo.ServicePersonnel", new[] { "IdPers" });
-            DropIndex("dbo.ServiceEconomique", new[] { "IdPers" });
             DropIndex("dbo.OrdrePayments", new[] { "ordermission_idOrdremission" });
             DropIndex("dbo.OrdreVirements", new[] { "IdOrdreVirement" });
             DropIndex("dbo.OrdrePaiements", new[] { "ordermission_idOrdremission" });
@@ -247,9 +247,9 @@
             DropIndex("dbo.Personnels", new[] { "Corps_Idcorps" });
             DropIndex("dbo.Personnels", new[] { "Cadre_IdCadre" });
             DropIndex("dbo.Cadres", new[] { "corps_Idcorps" });
-            DropTable("dbo.ServicePersonnel");
-            DropTable("dbo.ServiceEconomique");
             DropTable("dbo.Parameters");
+            DropTable("dbo.Parametre_voiture");
+            DropTable("dbo.Parametre_paiement");
             DropTable("dbo.Trajets");
             DropTable("dbo.OrdrePayments");
             DropTable("dbo.OrdreVirements");

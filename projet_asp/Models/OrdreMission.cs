@@ -18,9 +18,7 @@ namespace test_base_donnee_indemnite.Models
 
         public String numero { get; set; }
 
-        public bool approvedByAdmin { get; set; }
-
-        public bool approvedBySP { get; set; }
+        public bool etat { get; set; }
 
         public DateTime dateDepart { get; set; }
 
@@ -41,6 +39,8 @@ namespace test_base_donnee_indemnite.Models
         public String moyenTransport { get; set; }
 
         public int nombreCheuvaux { get; set; }
+
+        public float montant_total { get; set; }
 
         public List<OrdrePaiement> ordrePaiement { get; set; }
         public List<OrdrePayment> ordrePayment { get; set; }
