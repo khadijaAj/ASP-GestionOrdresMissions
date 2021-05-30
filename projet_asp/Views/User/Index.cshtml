@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/MenuLayout.cshtml";
 }
+@model IEnumerable<test_base_donnee_indemnite.Models.Personnel>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-       
+
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -51,18 +52,8 @@
                         </button>
                     </form>
 
-                    <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                   aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                  
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -229,22 +220,11 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+                               
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Se deconnecter
                                 </a>
                             </div>
                         </li>
@@ -253,8 +233,6 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -265,20 +243,38 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary"> Table des utilisateurs</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"> Table des personnels</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Email</th>
-                                            <th>Numéro de télé</th>
-                                            <th>Status</th>
-                                            <th>Echelle</th>
-                                            <th>Nb d'ordres</th>
+                                            <th>
+                                                @Html.DisplayNameFor(model=>model.Nom)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model=>model.Prenom)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model=>model.Email1)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model=>model.Email2)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model=>model.Adresse)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model=>model.specialite)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model=>model.echelon)
+                                            </th>
+                                            <th>
+                                                Nombre d'ordres
+                                            </th>
+
                                             <th>Modifier</th>
                                             <th>Supprimer</th>
 
@@ -286,118 +282,83 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Email</th>
-                                            <th>Numéro de télé</th>
-                                            <th>Status</th>
-                                            <th>Echelle</th>
-                                            <th>Nb d'ordres</th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Nom)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Prenom)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Email1)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Email2)
+                                            </th>
+                                           
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Adresse)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.specialite)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.echelon)
+                                            </th>
+                                            <th>
+                                                Nombre d'ordres
+                                            </th>
+
                                             <th>Modifier</th>
                                             <th>Supprimer</th>
+
                                         </tr>
+
                                     </tfoot>
                                     <tbody>
+                                        @foreach (var item in Model)
+                                        {
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
                                             <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
+                                                @Html.DisplayFor(modelItem => item.Nom)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Prenom)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email1)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email2)
+                                            </td>
+                                           
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Adresse)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.specialite)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.echelon)
+                                            </td>
+                                            <td>
+                                                0
+                                            </td>
+
+                                            <td>
+                                                <a href="#" class="btn btn-primary btn-icon-split">
                                                     <span class="text">Modifier</span>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">Supprimer</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>
                                                 <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Modifier</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
                                                     <span class="text">Supprimer</span>
                                                 </a>
                                             </td>
+
                                         </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Modifier</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">Supprimer</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Modifier</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">Supprimer</span>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        }
 
-
-
-
-
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>
-                                                <a href="#" class="btn btn-secondary buttons-print">
-                                                    <span class="text">Modifier</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-info btn-icon-split">
-                                                    <span class="text">Supprimer</span>
-                                                </a>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

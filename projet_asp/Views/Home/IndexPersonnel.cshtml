@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/MenuLayout.cshtml";
+    Layout = "~/Views/Shared/MenuPersonneLayout.cshtml";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +60,8 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
+                    
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -216,14 +217,13 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" />
+                               
 
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Se deconnecter
-                                </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Se deconnecter
+                                    </a>
                             </div>
                         </li>
 
@@ -234,7 +234,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-
+                 
 
                     <!-- Content Row -->
                     <div class="row">
@@ -246,9 +246,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Personnels
+                                                Utilisateurs
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_utilisateur</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-chart-pie fa-2x text-gray-300"></i>
@@ -267,7 +267,7 @@
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Ordres missions non approuvés
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_mission_non_approuve </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-chart-pie fa-2x text-gray-300"></i>
@@ -288,7 +288,7 @@
                                             </div>
                                             <div class="col mr-2">
 
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_mission_approuve</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -308,7 +308,7 @@
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Ordre de virement
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.count_virement</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-chart-pie fa-2x text-gray-300"></i>
