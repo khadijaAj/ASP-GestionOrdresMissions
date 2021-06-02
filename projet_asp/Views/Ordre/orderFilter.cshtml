@@ -1,9 +1,5 @@
-﻿@model IEnumerable<test_base_donnee_indemnite.Models.OrdreMission>
-
-@{
-    ViewBag.Title = "Index";
-}
-
+﻿
+@model IEnumerable<test_base_donnee_indemnite.Models.OrdreMission>
 
 
 @{
@@ -281,8 +277,12 @@
                                             <th>
                                                 @Html.DisplayNameFor(model => model.numero)
                                             </th>
-
-
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.personel.Nom)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.personel.Prenom)
+                                            </th>
                                             <th>
                                                 @Html.DisplayNameFor(model => model.dateDepart)
                                             </th>
@@ -314,7 +314,8 @@
                                                 @Html.DisplayNameFor(model => model.nombreCheuvaux)
                                             </th>
                                             <th>Virement</th>
-                                            
+                                            <th>Kilométrage</th>
+                                            <th>Déplacement</th>
                                             <th>PDF</th>
                                         </tr>
                                     </thead>
@@ -324,7 +325,12 @@
                                                 @Html.DisplayNameFor(model => model.numero)
                                             </th>
 
-
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.personel.Nom)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.personel.Prenom)
+                                            </th>
                                             <th>
                                                 @Html.DisplayNameFor(model => model.dateDepart)
                                             </th>
@@ -355,8 +361,10 @@
                                             <th>
                                                 @Html.DisplayNameFor(model => model.nombreCheuvaux)
                                             </th>
+                                           
                                             <th>Modifier</th>
-                                            
+                                            <th>Kilométrage</th>
+                                            <th>Déplacement</th>
                                             <th>PDF</th>
                                         </tr>
                                     </tfoot>
@@ -364,53 +372,69 @@
 
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.numero)
-                                                </td>
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.numero)
+                                            </td>
+                                            <th>
+                                                @Html.DisplayFor(model => item.personel.Nom)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayFor(model => item.personel.Prenom)
+                                            </th>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.dateDepart)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.dateArrivee)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.heureDepart)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.heureArrivee)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.echlon)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.matricule)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.grade)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.objetDepart)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.moyenTransport)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.nombreCheuvaux)
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary btn-icon-split">
+                                                    <span class="text">Modifier</span>
+                                                </a>
+                                            </td>
+                                            <td>
 
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.dateDepart)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.dateArrivee)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.heureDepart)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.heureArrivee)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.echlon)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.matricule)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.grade)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.objetDepart)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.moyenTransport)
-                                                </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.nombreCheuvaux)
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary btn-icon-split">
-                                                        <span class="text">Modifier</span>
-                                                    </a>
-                                                </td>
-                                               
-                                                <td>
-                                                    <a href="#" class="btn btn-info btn-icon-split">
-                                                        <span class="text">PDF</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                                @Html.ActionLink("Kilo", "Kilo", new { id = item.idOrdremission })
+                                            </td>
+                                            <td>
+                                                <form action="Test" method="post" class="form-horizontal">
+                                                    
+                                                            <a class="btn btn-primary btn-icon-split" style="color:white" href="@Url.Action("Deplacement", "Ordre")?id=@item.idOrdremission&year=@ViewBag.valueYear&month=@ViewBag.valueMonth&nomP=@ViewBag.selectedValue">
+                                                            <span class="text">Déplacement</span>
+                                                            </a>
+
+                                                </form>
+                                             
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>
                                         }
 
 
@@ -485,4 +509,7 @@
 </body>
 
 </html>
+
+
+
 

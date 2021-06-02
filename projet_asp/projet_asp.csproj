@@ -3140,6 +3140,12 @@
     <Content Include="Views\OrdreMissions\Create.cshtml" />
     <Content Include="Views\OrdreMissions\Index.cshtml" />
     <Content Include="Views\Ordre\Kilo.cshtml" />
+    <Content Include="Views\Ordre\Deplacement.cshtml" />
+    <Content Include="Views\Ordre\OrderByFilter.cshtml" />
+    <Content Include="Views\Ordre\orderFilter.cshtml" />
+    <Content Include="Views\Ordre\Test.cshtml" />
+    <Content Include="Views\Ordre\choixKilometrage.cshtml" />
+    <Content Include="Views\Ordre\GrileDeplacement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
