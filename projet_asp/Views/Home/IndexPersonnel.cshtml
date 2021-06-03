@@ -60,7 +60,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -210,20 +210,20 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@Session["nompersonnel"]</span>
                                 <img class="img-profile rounded-circle"
                                      src="../Content/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
-                               
 
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Se deconnecter
-                                    </a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Se deconnecter
+                                </a>
                             </div>
                         </li>
 
@@ -234,7 +234,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                 
+
 
                     <!-- Content Row -->
                     <div class="row">
@@ -459,7 +459,6 @@
             // For select 2
             //***********************************//
             $(".select2").select2();
-
             /*colorpicker*/
             $('.demo').each(function () {
                 //
@@ -474,7 +473,6 @@
                 $(this).minicolors({
                     control: $(this).attr('data-control') || 'hue',
                     position: $(this).attr('data-position') || 'bottom left',
-
                     change: function (value, opacity) {
                         if (!value) return;
                         if (opacity) value += ', ' + opacity;
@@ -484,7 +482,6 @@
                     },
                     theme: 'bootstrap'
                 });
-
             });
             /*datwpicker*/
             jQuery('.mydatepicker').datepicker();
@@ -495,7 +492,6 @@
             var quill = new Quill('#editor', {
                 theme: 'snow'
             });
-
         </script>
 
         <!-- Bootstrap core JavaScript-->

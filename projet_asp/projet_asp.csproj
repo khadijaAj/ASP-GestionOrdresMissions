@@ -127,7 +127,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Login_registerController.cs" />
     <Compile Include="Controllers\OrdreController.cs" />
     <Compile Include="Controllers\OrdreMissionsController.cs" />
     <Compile Include="Controllers\VirementController.cs" />
@@ -3134,14 +3133,15 @@
     <Content Include="Views\Ordre\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Ordre\Create.cshtml" />
-    <Content Include="Views\Login_register\Login.cshtml" />
-    <Content Include="Views\Login_register\Register.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Views\OrdreMissions\Create.cshtml" />
     <Content Include="Views\OrdreMissions\Index.cshtml" />
     <Content Include="Views\Ordre\Kilo.cshtml" />
     <Content Include="Views\Home\IndexPersonnel.cshtml" />
     <Content Include="Views\Shared\MenuPersonneLayout.cshtml" />
+    <Content Include="Views\Home\ListMesOrdresMissions.cshtml" />
+    <Content Include="Views\Home\ListOrdreVirement.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

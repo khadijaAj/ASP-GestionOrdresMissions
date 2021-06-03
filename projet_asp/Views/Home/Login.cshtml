@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model test_base_donnee_indemnite.Models.Personnel
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,7 +24,7 @@
 
 <body class="bg-gradient-primary">
 
-    <div class="container">
+    <div class="container" style="margin-top:100px;">
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -38,40 +39,75 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Bonjour!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">S'authentifier !</h1>
                                     </div>
-                                    <form class="user">
+                                    <!-- Message d'erreur-->
+
+                                    @if (@ViewBag.error != null)
+                                    {
+
+                                        <script type="text/javascript">
+                                            window.onload = function () {
+                                                alert('@ViewBag.error');
+                                            };
+
+
+
+                                        </script>
+                                    }
+
+
+                                    <!--
+                                    <text>
+                                        <script type="text/javascript">
+                                      $(document).ready(function () {
+                                      alert('@ViewBag.error');
+                                       });
+                                        </script>
+                                    </text>
+                                    -->
+
+
+
+                                    <form class="user" action="Authorize" method="post">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                   id="exampleInputEmail" aria-describedby="emailHelp"
-                                                   placeholder="Entrer votre Adresse Email ...">
+                                            <input type="text" class="form-control form-control-user"
+                                                   id="exampleInputUsername" aria-describedby="UsernameHelp" name="username"
+                                                   placeholder="Entrer votre username ...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                   id="exampleInputPassword" placeholder="Password">
+                                                   id="exampleInputPassword" placeholder="Password" name="password">
                                         </div>
+
+
+
+
+
+
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">
-                                                    Remember
-                                                    Me
-                                                </label>
+
                                             </div>
                                         </div>
-                                        <a href="/Ordre/Index" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
+
+                                        <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
+
+
+
 
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Mot de passe oublié?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="/Login_register/Register">Créer un compte!</a>
-                                    </div>
+
+
+
+
+
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -84,6 +120,8 @@
 
     </div>
 
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
     <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -93,6 +131,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../Scripts/js/sb-admin-2.min.js"></script>
+    <!-- jQUERY IMPORTS-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/mvc/4.0/jquery.validate.unobtrusive.min.js"></script>
+
+
 
 </body>
 

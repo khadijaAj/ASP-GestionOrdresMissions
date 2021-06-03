@@ -1,5 +1,4 @@
-﻿
-<head>
+﻿<head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,8 +73,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="#">Liste de mes ordres</a>
-                        <a class="collapse-item" href="#">Ajouter mon ordre</a>
+                        <a class="collapse-item" href="/Home/ListMesOrdresMissions">Liste de mes ordres</a>
                     </div>
                 </div>
             </li>
@@ -90,26 +88,24 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Liste de mes virements</a>
+                        <a class="collapse-item" href="/Home/ListOrdreVirement">Liste de mes virements</a>
                     </div>
                 </div>
             </li>
 
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-user-alt"></i>
-                    <span>Gérer mon profil</span>
-                </a>
-                <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                        <a class="collapse-item" href="#">Modifier mon profil</a>
-                    </div>
-                </div>
+            <!-- Logout -->
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Login">
+                    <i class="fas fa-user-alt"></i>
+                    <span>Deconnexion</span>
+                </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -169,7 +165,6 @@
         // For select 2
         //***********************************//
         $(".select2").select2();
-
         /*colorpicker*/
         $('.demo').each(function () {
             //
@@ -184,7 +179,6 @@
             $(this).minicolors({
                 control: $(this).attr('data-control') || 'hue',
                 position: $(this).attr('data-position') || 'bottom left',
-
                 change: function (value, opacity) {
                     if (!value) return;
                     if (opacity) value += ', ' + opacity;
@@ -194,7 +188,6 @@
                 },
                 theme: 'bootstrap'
             });
-
         });
         /*datwpicker*/
         jQuery('.mydatepicker').datepicker();
@@ -205,7 +198,6 @@
         var quill = new Quill('#editor', {
             theme: 'snow'
         });
-
     </script>
 
     <!-- Bootstrap core JavaScript-->
@@ -219,5 +211,3 @@
     <script src="../Scripts/sb-admin-2.min.js"></script>
 
 </body>
-
-
