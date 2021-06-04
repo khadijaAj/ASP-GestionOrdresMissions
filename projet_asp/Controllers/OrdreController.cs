@@ -1,18 +1,20 @@
-﻿using System;
+﻿using projet_asp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using test_base_donnee_indemnite.Models;
-
 namespace projet_asp.Controllers
 {
+    
     public class OrdreController : Controller
     {
         //calcule
         int Taux = 0;
         int NbJourDecouche = 0;
+        int RepasMidi = 0;
         int nbJour1 = 0;
         int nbJour2 = 0;
         int nbJours = 0;
@@ -22,18 +24,14 @@ namespace projet_asp.Controllers
         int TotaleRepasMidi = 0;
         int TotaleRepasSoir = 0;
         int TotaleDeplacement = 0;
-        List<int> listeJours = new List<int>();
-        List<int> listeRepasMidi = new List<int>();
-        int k = 0;
-        int dateDepartEgal = 0;
-        int dateArriveEgal = 0;
 
-        int jrMidiAnnuler = 0;
+        List<int> listeJours = new List<int>();
+        bool testCinqMatin = false;
+        bool testMinhuit = false;
+
+        // structure table
         private DbContextIndimnite db = new DbContextIndimnite();
 
-        List<String> NomPersonnel;
-        List<int> annéesOrdre;
-        List<int> moisOrdre;
 
         // GET: Ordre/Index
         public ActionResult Index()
@@ -43,9 +41,11 @@ namespace projet_asp.Controllers
 
         public ActionResult Kilo()
         {
+            // recuperer donnee de la form
             string nomP = Request.Form["NomPersonel"].ToString();
             string anneeOrdre = Request.Form["annee"].ToString();
             string moisOrdre = Request.Form["mois"].ToString();
+
             ViewBag.selectedValue = nomP;
             ViewBag.valueYear = anneeOrdre;
             ViewBag.valueMonth = moisOrdre;
@@ -107,6 +107,11 @@ namespace projet_asp.Controllers
         // calcule Déplacement
         public ActionResult Deplacement()
         {
+            List<grilleTb> listeGrille = new List<grilleTb>();
+
+            int k = 0;
+            int Decouches = 0;
+            // recuperer donnee de la form
             string nomP = Request.Form["NomPersonel"].ToString();
             string anneeOrdre = Request.Form["annee"].ToString();
             string moisOrdre = Request.Form["mois"].ToString();
@@ -117,46 +122,118 @@ namespace projet_asp.Controllers
             int year = Convert.ToInt32(anneeOrdre);
             int month = Convert.ToInt32(moisOrdre);
 
-
+            
             List<int> TotaleJourDecoucheMois = new List<int>();
             List<int> TotaleReppasMidiMois = new List<int>();
             List<int> TotaleReppasSoirMois = new List<int>();
 
             List<OrdreMission> orders = db.ordremission.Where(s => s.dateDepart.Year == year && (s.dateDepart.Month == month || s.dateArrivee.Month == month) && s.personel.Nom
              == nomP).ToList();
-           
+
             foreach (var ordre in orders)
             {
-                //
+                testCinqMatin = false;
+                testMinhuit = false;
+
+                // calcule jours Decouche
                 TotaleJourDecoucheMois.Add(CalculeNbJourDecouche(ordre, month));
                 for (k = 0; k < NbJourDecouche; k++)
                 {
+                    
                     listeJours.Add(ordre.dateDepart.Day + k);
                 }
-                
+
                 for (k = 0; k < nbJour1; k++)
                 {
-                    listeJours.Add(k+1);
+                    listeJours.Add(k + 1);
                 }
                 for (k = 0; k < nbJour2; k++)
                 {
                     listeJours.Add(ordre.dateDepart.Day + k);
                 }
-                //
+                // ajouter une decouche si condition minhuit et cinq matin
+                if (testCinqMatin == true) { listeJours.Add(ordre.dateDepart.Day -1); }
+                if (testMinhuit == true) { listeJours.Add(ordre.dateArrivee.Day); }
+
+                // calcule nbre de repas midi
                 TotaleReppasMidiMois.Add(CalculeNbRepasMidi(ordre, month));
-                for (k = 0; k < NbRepasMidi; k++)
-                {
-                    listeRepasMidi.Add(ordre.dateDepart.Day + k);
-                }
-                //
+
+                // calculer nbre de repas soir
                 TotaleReppasSoirMois.Add(CalculeNbRepasSooir(ordre, month));
+          
             }
+
+            listeJours.Sort();
+            // remplir liste de grille
+
+            for (int i = 0; i < listeJours.Count; i++)
+            {
+
+                foreach (var ordre in orders)
+                     {
+                            
+                            // dans meme mois
+                            if (ordre.dateDepart.Month == month && ordre.dateArrivee.Month == month )
+                            {
+                                if (listeJours[i] >= ordre.dateDepart.Day && listeJours[i] <= ordre.dateArrivee.Day -1)
+                                {
+                                    List<Boolean> result = VerifierRepas(listeJours[i], ordre, month);
+                                    listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
+                                }
+                                // si condition cinq matin = true ou condMinHuit = true
+                                if (ordre.dateDepart.Day -1 == listeJours[i] || ordre.dateArrivee.Day == listeJours[i])
+                                {
+                                    listeGrille.Add(new grilleTb(listeJours[i], false, false));
+                                     Decouches += 1;
+
+
+                                }
+   
+                            }
+                            // si sans depart dans le mois precendant
+                            else if (ordre.dateDepart.Month == month && ordre.dateArrivee.Month != month)
+                            {
+                                if (listeJours[i] >= ordre.dateDepart.Day){
+                                    List<Boolean> result = VerifierRepas(listeJours[i], ordre, month);
+                                    listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
+                                }
+                                // si condition cinq matin = true
+                                if (ordre.dateDepart.Day - 1 == listeJours[i])
+                                {
+                                    listeGrille.Add(new grilleTb(listeJours[i], false, false));
+                                    Decouches += 1;
+                                }
+
+                            }
+                            // si arrivee dans le mois prochain
+                            else if (ordre.dateDepart.Month != month && ordre.dateArrivee.Month == month)
+                            {
+                                if (listeJours[i] <= ordre.dateArrivee.Day -1)
+                                {
+                                    List < Boolean > result = VerifierRepas(listeJours[i], ordre, month);
+                                    listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
+                                }
+                                // si condMinHuit = true
+                                if ( ordre.dateArrivee.Day == listeJours[i])
+                                {
+                                    listeGrille.Add(new grilleTb(listeJours[i], false, false));
+                                    Decouches += 1;
+                                }
+
+                             }
+                         }
+                            
+                            
+                    }
+
+
+            
 
 
             // calcule de taux 
             Taux = CalculeTaux(orders[0]);
+
             // totale decouche
-            int Decouches = 0;
             foreach (var elem in TotaleJourDecoucheMois)
             {
                 Decouches = Decouches + elem;
@@ -164,7 +241,7 @@ namespace projet_asp.Controllers
             TolaleDecouche = Taux * Decouches;
 
             // totale Repas Midi
-            int RepasMidi = 0;
+            RepasMidi = 0;
             foreach (var elem in TotaleReppasMidiMois)
             {
                 RepasMidi = RepasMidi + elem;
@@ -183,14 +260,14 @@ namespace projet_asp.Controllers
             TotaleDeplacement = TolaleDecouche + TotaleRepasMidi + TotaleRepasSoir;
 
 
+            listeJours.Sort();
             OrdreMission ordreMession = orders[0];
             ViewData["mois"] = moisOrdre;
-            listeJours.Sort();
-            listeRepasMidi.Sort();
-            ViewBag.listeJours = listeJours;
-            ViewBag.listeRepasMidi = listeRepasMidi;
             ViewBag.nbRepasMidi = RepasMidi;
             ViewBag.nbRepasSoir = RepasSoir;
+            ViewBag.listeGrille = listeGrille;
+            ViewBag.size = listeGrille.Count;
+            ViewBag.listeJours = listeJours;
             DateTime now = DateTime.Now;
             ViewData["date"] = now.ToString("MM/dd/yyyy");
             ViewData["taux"] = Taux;
@@ -205,10 +282,103 @@ namespace projet_asp.Controllers
             return View(ordreMession);
         }
 
+        // verifier Repas
+        public List<Boolean> VerifierRepas(int jour, OrdreMission  ordre, int mounth)
+        {
+            List<Boolean> resultat = new List<Boolean>();
+            List<Boolean> resultat2 = new List<Boolean>();
+           
+                if (jour != ordre.dateDepart.Day && jour != (ordre.dateArrivee.Day-1))
+                {
+                    resultat.Add(true);
+                    resultat.Add(true);
+                }
+                if (jour == ordre.dateDepart.Day)
+                {
+                    resultat2 = verifierRepasCasDepart(ordre);
+                    resultat.Add(resultat2[0]);
+                    resultat.Add(resultat2[1]);
+                }
+                if (jour == ordre.dateArrivee.Day - 1)
+                {
+                    resultat2 = verifierRepasCasArrivee(ordre);
+                    resultat.Add(resultat2[0]);
+                    resultat.Add(resultat2[1]);
+            }
+            
+            return resultat;
+        }
 
+        public List<Boolean> verifierRepasCasDepart(OrdreMission ordre)
+        {
+            List<Boolean> resultComparaison = new List<Boolean>();
+            DateTime HeureDepart = DateTime.Parse(ordre.heureDepart, System.Globalization.CultureInfo.CurrentCulture);
+            
+            DateTime HeureConditionTime14 = DateTime.Parse("14:00", System.Globalization.CultureInfo.CurrentCulture);
+            DateTime HeureConditionTime21 = DateTime.Parse("21:00", System.Globalization.CultureInfo.CurrentCulture);
+
+            int resultTime14 = DateTime.Compare(HeureDepart, HeureConditionTime14);
+            int resultTime21 = DateTime.Compare(HeureDepart, HeureConditionTime21);
+
+            // n'a pas de repas dejeuner et de diner
+            if (resultTime21 > 0)
+            {
+                resultComparaison.Add(false);
+                resultComparaison.Add(false);
+            }
+            // il a les deux repas
+            else if(resultTime14 <= 0)
+            {
+                resultComparaison.Add(true);
+                resultComparaison.Add(true);
+            }
+            // il n'a pas de dejeuner et il a le diner
+            else if(resultTime14 >= 0)
+            {
+                resultComparaison.Add(false);
+                resultComparaison.Add(true);
+            }
+           
+
+           
+            return resultComparaison;
+        }
+
+        public List<Boolean> verifierRepasCasArrivee(OrdreMission ordre)
+        {
+            List<Boolean> resultComparaison = new List<Boolean>();
+            DateTime HeurArrivee = DateTime.Parse(ordre.heureArrivee, System.Globalization.CultureInfo.CurrentCulture);
+
+            DateTime HeureConditionTime11 = DateTime.Parse("11:00", System.Globalization.CultureInfo.CurrentCulture);
+            DateTime HeureConditionTime14 = DateTime.Parse("14:00", System.Globalization.CultureInfo.CurrentCulture);
+            DateTime HeureConditionTime19 = DateTime.Parse("19:00", System.Globalization.CultureInfo.CurrentCulture);
+            int resultTime11 = DateTime.Compare(HeurArrivee, HeureConditionTime11);
+            int resultTime14 = DateTime.Compare(HeurArrivee, HeureConditionTime14);
+            int resultTime19 = DateTime.Compare(HeurArrivee, HeureConditionTime19);
+            // n'a pas de repas dejeuner et de diner
+            if (resultTime11 <= 0)
+             {
+                 resultComparaison.Add(false);
+                 resultComparaison.Add(false);
+             }
+             // il a les deux repas
+             if (resultTime19 >= 0)
+             {
+                 resultComparaison.Add(true);
+                 resultComparaison.Add(true);
+             }
+             // il n'a pas de dejeuner et il a le diner
+             if (resultTime19 < 0 && resultTime14 > 0)
+             {
+                 resultComparaison.Add(true);
+                 resultComparaison.Add(false);
+             }
+            
+            return resultComparaison;
+        }
         public int CalculeNbJourDecouche(OrdreMission ordreMission, int month)
         {
-
+           
             nbJour1 = 0;
             nbJour2 = 0;
             nbJours = 0;
@@ -232,21 +402,35 @@ namespace projet_asp.Controllers
                 int resultMinuit = DateTime.Compare(HeureArreve, HeureConditionMinuit);
                 if (resultCinqMatin <= 0)
                 {
-                    NbJourDecouche = NbJourDecouche + 1;
+                   
+                    testCinqMatin = true;
                 }
                 if (resultMinuit >= 0)
                 {
-                    NbJourDecouche = NbJourDecouche + 1;
+                    
+                    testMinhuit = true;
                 }
            
             }
             else
             {
+                DateTime HeureDepart = DateTime.Parse(ordreMission.heureDepart, System.Globalization.CultureInfo.CurrentCulture);
+                DateTime HeureArreve = DateTime.Parse(ordreMission.heureArrivee, System.Globalization.CultureInfo.CurrentCulture);
+                DateTime HeureConditionCinqMatin = DateTime.Parse("05:00", System.Globalization.CultureInfo.CurrentCulture);
+                DateTime HeureConditionMinuit = DateTime.Parse("23:00", System.Globalization.CultureInfo.CurrentCulture);
+                int resultCinqMatin = DateTime.Compare(HeureDepart, HeureConditionCinqMatin);
+                int resultMinuit = DateTime.Compare(HeureArreve, HeureConditionMinuit);
+
                 if (dateArreve.Month == month)
                 {
 
                     nbJour1 = dateArreve.Day -1;
-                   
+                    if (resultMinuit >= 0)
+                    {
+
+                        testMinhuit = true;
+                    }
+
 
                 }
                 if (dateDepart.Month == month)
@@ -254,9 +438,11 @@ namespace projet_asp.Controllers
 
                     var lastDayOfMonth = DateTime.DaysInMonth(dateDepart.Year, dateDepart.Month);
                     nbJour2 = lastDayOfMonth - dateDepart.Day;
-                   
-                    
+                    if (resultCinqMatin <= 0)
+                    {
 
+                        testCinqMatin = true;
+                    }
                 }
                
                 nbJours = nbJour1 + nbJour2;
@@ -289,10 +475,12 @@ namespace projet_asp.Controllers
             if (resultTime14 > 0)
             {
                 NbRepasMidi = NbRepasMidi - 1;
+                
             }
             if (resultTime11 < 0)
             {
                 NbRepasMidi = NbRepasMidi - 1;
+               
             }
             else
             {

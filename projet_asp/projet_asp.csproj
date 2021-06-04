@@ -145,6 +145,7 @@
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\DbContextIndimnite.cs" />
     <Compile Include="Models\Grades.cs" />
+    <Compile Include="Models\grilleTb.cs" />
     <Compile Include="Models\OrdreMission.cs" />
     <Compile Include="Models\OrdrePaiement.cs" />
     <Compile Include="Models\OrdrePayment.cs" />

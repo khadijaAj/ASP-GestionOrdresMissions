@@ -1,6 +1,7 @@
 ﻿
 @model test_base_donnee_indemnite.Models.OrdreMission
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,20 +147,23 @@
             margin-bottom: 8px;
             text-rendering: optimizeLegibility;
         }
+
         .sectionGrille {
-            
             padding: 40px;
             margin-left: auto;
             margin-right: auto;
             border: solid 1px;
         }
-        .tableGrile{
-            width :100%;
+
+        .tableGrile {
+            width: 100%;
         }
+
         .thClass {
             border-right: 2px solid black;
         }
-        .paragraph{
+
+        .paragraph {
             padding: 40px;
         }
     </style>
@@ -402,42 +406,66 @@
                                         @{ int RepasMidi = ViewBag.nbRepasMidi;
                                             int RepasSoir = ViewBag.nbRepasSoir;
                                             int l = 0;
+                                            int j = -1;
+                                            int count = 0;
 
                                             for (int i = 1; i <= 31; i++)
                                             {
+                                                                                <tr>
+                                                                                    <td>@i</td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    @if (l < ViewBag.size)
+                                                                                    {
+                                                                                        if ((@ViewBag.listeGrille[l].jour == i))
+                                                                                        {
+                                                                                            <td style="text-align:center;">x</td>
 
-                                                <tr>
-                                                    <td>@i</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    @if (l < ViewBag.listeJours.Count)
-                                                    {
-                                                        if ((@ViewBag.listeJours[l] == i))
-                                                        {
-                                                            <td style="text-align:center;">x</td>
-                                                            l++;
-                                                        }
-                                                        else
-                                                        {
-                                                            <td></td>
+                                                                                            if (@ViewBag.listeGrille[l].repasMidi == true)
+                                                                                            {
+                                                                                                <td style="text-align:center;">x</td>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <td></td>
+                                                                                            }
 
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        <td></td>
-                                                    }
-                                                    <td>@RepasMidi</td>
-                                                    <td>@RepasSoir</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                                                                            if (@ViewBag.listeGrille[l].repasSoir == true)
+                                                                                            {
+                                                                                                <td style="text-align:center;">x</td>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <td></td>
+                                                                                            }
+
+                                                                                            l++;
+
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <td></td>
+                                                                                            <td></td>
+                                                                                            <td></td>
+                                                                                        }
+
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                    }
 
 
+
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                    <td></td>
+                                                                                </tr>
                                             }
                                         }
                                     </tbody>
@@ -451,19 +479,24 @@
                                     du 31 au 90éme jour(80% de l'indemnité)
                                 </p>
 
+
                                 @{
-                                    for (int k = 0; k < @ViewBag.listeJours.Count; k++)
+
+                                    foreach (var ele in @ViewBag.listeGrille)
                                     {
-                                        <p>@ViewBag.listeJours[k]</p>
+                                        <p> @ele.jour @ele.repasMidi @ele.repasSoir</p>
                                     }
 
-                                    for (int k = 0; k < @ViewBag.listeRepasMidi.Count; k++)
+                                    for (int m = 0; m < @ViewBag.size; m++)
                                     {
-                                        <p>***@ViewBag.listeRepasMidi[k]***</p>
+                                        @ViewBag.listeGrille[m].jour;
                                     }
-
+                                    
+                                    foreach (var ele in @ViewBag.listeJours)
+                                    {
+                                        <p> @ele</p>
+                                    }
                                 }
-
                             </section>
 
 
