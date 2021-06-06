@@ -41,11 +41,9 @@ namespace projet_asp.Controllers
 
         public ActionResult Kilo()
         {
-            // recuperer donnee de la form
             string nomP = Request.Form["NomPersonel"].ToString();
             string anneeOrdre = Request.Form["annee"].ToString();
             string moisOrdre = Request.Form["mois"].ToString();
-
             ViewBag.selectedValue = nomP;
             ViewBag.valueYear = anneeOrdre;
             ViewBag.valueMonth = moisOrdre;
@@ -57,6 +55,8 @@ namespace projet_asp.Controllers
             int month = Convert.ToInt32(moisOrdre);
             List<OrdreMission> orders = db.ordremission.Where(s => s.dateDepart.Year == year && (s.dateDepart.Month == month || s.dateArrivee.Month == month) && s.personel.Nom
              == nomP).ToList();
+            List<int> jours = new List<int>();
+            List<GrilleKilo> listGrilleKilo = new List<GrilleKilo>();
             foreach (var order in orders)
             {
                 ViewData["nom"] = nomP;
@@ -94,13 +94,48 @@ namespace projet_asp.Controllers
                 @ViewData["aller"] = nbAller;
                 @ViewData["retour"] = nbRetour;
                 ViewData["total"] = (double)ViewData["taux"] * (int)kms * (nbAller + nbRetour);
+                jours.Add(order.dateDepart.Day);
             }
+            //remplir la grille
+            foreach (var order in orders)
+            {
+                if (order.dateDepart.Month == month && order.dateArrivee.Month != month)
+                {
+                    listGrilleKilo.Add(new GrilleKilo(order.dateDepart.Day, order.trajet.villeDepart, order.trajet.villeArrivee, order.heureDepart, order.trajet.distance));
+                    jours.Add(order.dateDepart.Day);
+                }
+                else if (order.dateDepart.Month != month && order.dateArrivee.Month == month)
+                {
+                    listGrilleKilo.Add(new GrilleKilo(order.dateArrivee.Day, order.trajet.villeArrivee, order.trajet.villeDepart, order.heureArrivee, order.trajet.distance));
+                    jours.Add(order.dateArrivee.Day);
+                }
+                else if (order.dateDepart.Month == month && order.dateArrivee.Month == month)
+                {
+                    listGrilleKilo.Add(new GrilleKilo(order.dateDepart.Day, order.trajet.villeDepart, order.trajet.villeArrivee, order.heureDepart, order.trajet.distance));
+                    listGrilleKilo.Add(new GrilleKilo(order.dateArrivee.Day, order.trajet.villeArrivee, order.trajet.villeDepart, order.heureArrivee, order.trajet.distance));
+                    jours.Add(order.dateDepart.Day);
+                    jours.Add(order.dateArrivee.Day);
+                }
+            }
+            jours.Sort();
 
-            
-            OrdreMission ordreMession = orders[0];
+            listGrilleKilo.Sort();
+            ViewBag.list = listGrilleKilo;
+            ViewBag.size = listGrilleKilo.Count();
+            ViewBag.jours = jours;
+            ViewBag.size1 = jours.Count();
+            if (orders.Count() > 0)
+            {
+                OrdreMission ordreMession = orders[0];
+
             return View(ordreMession);
+            }
+            else
+            {
+                 
+                return View("Test");
+            }
         }
-
 
 
 
@@ -122,7 +157,7 @@ namespace projet_asp.Controllers
             int year = Convert.ToInt32(anneeOrdre);
             int month = Convert.ToInt32(moisOrdre);
 
-            
+
             List<int> TotaleJourDecoucheMois = new List<int>();
             List<int> TotaleReppasMidiMois = new List<int>();
             List<int> TotaleReppasSoirMois = new List<int>();
@@ -139,7 +174,7 @@ namespace projet_asp.Controllers
                 TotaleJourDecoucheMois.Add(CalculeNbJourDecouche(ordre, month));
                 for (k = 0; k < NbJourDecouche; k++)
                 {
-                    
+
                     listeJours.Add(ordre.dateDepart.Day + k);
                 }
 
@@ -152,7 +187,7 @@ namespace projet_asp.Controllers
                     listeJours.Add(ordre.dateDepart.Day + k);
                 }
                 // ajouter une decouche si condition minhuit et cinq matin
-                if (testCinqMatin == true) { listeJours.Add(ordre.dateDepart.Day -1); }
+                if (testCinqMatin == true) { listeJours.Add(ordre.dateDepart.Day - 1); }
                 if (testMinhuit == true) { listeJours.Add(ordre.dateArrivee.Day); }
 
                 // calcule nbre de repas midi
@@ -160,7 +195,7 @@ namespace projet_asp.Controllers
 
                 // calculer nbre de repas soir
                 TotaleReppasSoirMois.Add(CalculeNbRepasSooir(ordre, month));
-          
+
             }
 
             listeJours.Sort();
@@ -170,68 +205,71 @@ namespace projet_asp.Controllers
             {
 
                 foreach (var ordre in orders)
-                     {
-                            
-                            // dans meme mois
-                            if (ordre.dateDepart.Month == month && ordre.dateArrivee.Month == month )
-                            {
-                                if (listeJours[i] >= ordre.dateDepart.Day && listeJours[i] <= ordre.dateArrivee.Day -1)
-                                {
-                                    List<Boolean> result = VerifierRepas(listeJours[i], ordre, month);
-                                    listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
-                                }
-                                // si condition cinq matin = true ou condMinHuit = true
-                                if (ordre.dateDepart.Day -1 == listeJours[i] || ordre.dateArrivee.Day == listeJours[i])
-                                {
-                                    listeGrille.Add(new grilleTb(listeJours[i], false, false));
-                                     Decouches += 1;
+                {
+
+                    // dans meme mois
+                    if (ordre.dateDepart.Month == month && ordre.dateArrivee.Month == month)
+                    {
+                        if (listeJours[i] >= ordre.dateDepart.Day && listeJours[i] <= ordre.dateArrivee.Day - 1)
+                        {
+                            List<Boolean> result = VerifierRepas(listeJours[i], ordre, month);
+                            listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
+                        }
+                        // si condition cinq matin = true ou condMinHuit = true
+                        if (ordre.dateDepart.Day - 1 == listeJours[i] || ordre.dateArrivee.Day == listeJours[i])
+                        {
+                            listeGrille.Add(new grilleTb(listeJours[i], false, false));
+                            Decouches += 1;
 
 
-                                }
-   
-                            }
-                            // si sans depart dans le mois precendant
-                            else if (ordre.dateDepart.Month == month && ordre.dateArrivee.Month != month)
-                            {
-                                if (listeJours[i] >= ordre.dateDepart.Day){
-                                    List<Boolean> result = VerifierRepas(listeJours[i], ordre, month);
-                                    listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
-                                }
-                                // si condition cinq matin = true
-                                if (ordre.dateDepart.Day - 1 == listeJours[i])
-                                {
-                                    listeGrille.Add(new grilleTb(listeJours[i], false, false));
-                                    Decouches += 1;
-                                }
+                        }
 
-                            }
-                            // si arrivee dans le mois prochain
-                            else if (ordre.dateDepart.Month != month && ordre.dateArrivee.Month == month)
-                            {
-                                if (listeJours[i] <= ordre.dateArrivee.Day -1)
-                                {
-                                    List < Boolean > result = VerifierRepas(listeJours[i], ordre, month);
-                                    listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
-                                }
-                                // si condMinHuit = true
-                                if ( ordre.dateArrivee.Day == listeJours[i])
-                                {
-                                    listeGrille.Add(new grilleTb(listeJours[i], false, false));
-                                    Decouches += 1;
-                                }
-
-                             }
-                         }
-                            
-                            
                     }
+                    // si sans depart dans le mois precendant
+                    else if (ordre.dateDepart.Month == month && ordre.dateArrivee.Month != month)
+                    {
+                        if (listeJours[i] >= ordre.dateDepart.Day) {
+                            List<Boolean> result = VerifierRepas(listeJours[i], ordre, month);
+                            listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
+                        }
+                        // si condition cinq matin = true
+                        if (ordre.dateDepart.Day - 1 == listeJours[i])
+                        {
+                            listeGrille.Add(new grilleTb(listeJours[i], false, false));
+                            Decouches += 1;
+                        }
+
+                    }
+                    // si arrivee dans le mois prochain
+                    else if (ordre.dateDepart.Month != month && ordre.dateArrivee.Month == month)
+                    {
+                        if (listeJours[i] <= ordre.dateArrivee.Day - 1)
+                        {
+                            List<Boolean> result = VerifierRepas(listeJours[i], ordre, month);
+                            listeGrille.Add(new grilleTb(listeJours[i], result[0], result[1]));
+                        }
+                        // si condMinHuit = true
+                        if (ordre.dateArrivee.Day == listeJours[i])
+                        {
+                            listeGrille.Add(new grilleTb(listeJours[i], false, false));
+                            Decouches += 1;
+                        }
+
+                    }
+                }
 
 
-            
+            }
 
 
-            // calcule de taux 
-            Taux = CalculeTaux(orders[0]);
+
+
+
+            if (orders.Count() > 0)
+            {
+
+                // calcule de taux 
+                Taux = CalculeTaux(orders[0]);
 
             // totale decouche
             foreach (var elem in TotaleJourDecoucheMois)
@@ -261,7 +299,7 @@ namespace projet_asp.Controllers
 
 
             listeJours.Sort();
-            OrdreMission ordreMession = orders[0];
+           
             ViewData["mois"] = moisOrdre;
             ViewBag.nbRepasMidi = RepasMidi;
             ViewBag.nbRepasSoir = RepasSoir;
@@ -278,10 +316,19 @@ namespace projet_asp.Controllers
             ViewData["TotaleRepasMidi"] = TotaleRepasMidi;
             ViewData["TotaleRepasSoir"] = TotaleRepasSoir;
             ViewData["TotaleDeplacement"] = TotaleDeplacement;
-            
-            return View(ordreMession);
-        }
 
+            
+                OrdreMission ordreMession = orders[0];
+
+                return View(ordreMession);
+            }
+            else
+            {
+
+                return View("Test");
+            }
+        }
+            
         // verifier Repas
         public List<Boolean> VerifierRepas(int jour, OrdreMission  ordre, int mounth)
         {
@@ -624,6 +671,11 @@ namespace projet_asp.Controllers
             return View(db.ordremission.ToList());
         }
 
+        public ActionResult test()
+        {
+            ViewBag.test = "hey";
+            return View("~/Views/OrdreMissions/test.cshtml"); 
+        }
 
 
     }

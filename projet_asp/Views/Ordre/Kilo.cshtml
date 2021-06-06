@@ -1,5 +1,4 @@
-﻿
-@model test_base_donnee_indemnite.Models.OrdreMission
+﻿@model test_base_donnee_indemnite.Models.OrdreMission
 
 <!DOCTYPE html>
 <html>
@@ -8,24 +7,26 @@
     <style>
 
         body {
-            height: 14in;
-            width: 9.25in;
-            margin-left: auto;
-            margin-right: auto;
-            border: solid 1px;
+            height: auto;
+            width: 90%;
+            margin: auto;
         }
 
+        .container {
+            padding: 40px;
+        }
 
         .ecole {
             text-align: center;
             margin-left: 30px;
+            padding-top: 10px;
             width: 40%;
             font-size: small;
             font-weight: bold;
         }
 
         .img {
-            margin-left: 300px;
+            margin-left: 500px;
             width: 200px;
             height: auto;
             align-content: center;
@@ -33,7 +34,7 @@
 
         .header {
             display: flex;
-            margin-top: 40px;
+            margin-top: 20px;
             margin-bottom: 50px;
         }
 
@@ -79,7 +80,11 @@
         }
 
 
-
+        .table3 {
+            text-align: center;
+            width: 80%;
+            border-collapse: collapse;
+        }
 
         .textLeft {
             text-align: left;
@@ -93,19 +98,20 @@
 
         .borderStyle {
             border-style: dashed;
-            width: 230px;
+            width: 600px;
             height: 20px;
             padding-left: 30px;
         }
 
         .underTable {
             display: flex;
-            margin-left: 100px;
+            margin-left: 130px;
             margin-right: 10px;
         }
 
         .prix {
             margin-left: 200px;
+            width: auto;
         }
 
         table, td {
@@ -132,168 +138,201 @@
         .tdExecptTop {
             border-top: none;
         }
+
+        h1 {
+            font-family: "proxima-nova",sans-serif;
+            letter-spacing: -0.01em;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 60px;
+            margin-left: -3px;
+            line-height: 1em;
+            color: rgb(10, 5, 5);
+            text-align: center;
+            margin-bottom: 8px;
+            text-rendering: optimizeLegibility;
+        }
+
+        .sectionGrille {
+            padding: 40px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tableGrile {
+            width: 100%;
+        }
+
+        .thClass {
+            border-right: 2px solid black;
+        }
+
+        .paragraph {
+            padding: 40px;
+        }
     </style>
 
 </head>
 <body>
 
+    <div class="container">
+        <div class="header">
+            <div class="ecole">
+                <p class="w">UNIVERSITE CADI AYYAD</p>
+                <p class="w">ECOLE NATIONAL DES SCIENCES APPLIQUEES</p>
+                <p class="w">SAFI</p>
+            </div>
+            <div class="img"><img src="~/Content/assets/images/ensasLogo.png" width="270" height="100" alt="ensasLogo"></div>
+        </div>
+        <div class="title">
+            <p> <b><u>ETAT DES INDEMNITES KILOMETRAGES OU DE</u></b> </p>
+            <p><b><u> DEPLACEMENT</u></b></p>
+        </div>
 
-    <div class="header">
-        <div class="ecole">
-            <p class="w">UNIVERSITE CADI AYYAD</p>
-            <p class="w">ECOLE NATIONAL DES SCIENCES APPLIQUEES</p>
-            <p class="w">SAFI</p>
-        </div>
-        <div class="img"><img src="ensasLogo.png" alt="ensasLogo"></div>
-    </div>
-    <div class="title">
-        <p> <b><u>ETAT DES INDEMNITES KILOMETRAGES OU DE</u></b> </p>
-        <p><b><u> DEPLACEMENT</u></b></p>
-    </div>
-    <div class="info">
-        <div class="info1">
-            <p>M  :@Html.DisplayFor(model => model.numero) </p>
-            <p>
-                Effectués pendant le mois de :@ViewData["mois"]
+        <div class="info">
+            <div class="info1">
+                <p>M  :@Html.DisplayFor(model => model.numero) </p>
+                <p>
+                    Effectués pendant le mois de :@ViewData["mois"]
 
-            </p>
-            <p>Nom & Prénom : @Html.DisplayFor(model => model.personel.Nom) @Html.DisplayFor(model => model.personel.Prenom) </p>
-            <p>Echelle :@Html.DisplayFor(model => model.personel.Echelle)</p>
-            <p>Groupe : @Html.DisplayFor(model => model.echlon)</p>
-            <p>Motif de déplacement :   @Html.DisplayFor(model => model.objetDepart)</p>
+                </p>
+                <p>Nom & Prénom : @Html.DisplayFor(model => model.personel.Nom) @Html.DisplayFor(model => model.personel.Prenom) </p>
+                <p>Echelle :@Html.DisplayFor(model => model.personel.Echelle)</p>
+                <p>Groupe : @Html.DisplayFor(model => model.echlon)</p>
+                <p>Motif de déplacement :   @Html.DisplayFor(model => model.objetDepart)</p>
+            </div>
+            <div class="info2">
+                <p>Grade : @Html.DisplayFor(model => model.personel.Grades.Nom) </p>
+                <p>Résidence :  @Html.DisplayFor(model => model.trajet.villeDepart)</p>
+            </div>
         </div>
-        <div class="info2">
-            <p>Grade : @Html.DisplayFor(model => model.personel.Grades.Nom) </p>
-            <p>Résidence :  @Html.DisplayFor(model => model.trajet.villeDepart)</p>
-        </div>
-    </div>
-    <div>
-        <table class="table ">
-            <tbody>
-                <tr class="trExecptbottom">
-                    <td>
-                        <table class="table1 tb1">
-                            <tbody>
+        <div>
+            <table class="table ">
+                <tbody>
+                    <tr class="trExecptbottom">
+                        <td>
+                            <table class="table1 tb1">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="4" style="height: 60px;" class="textLeft">1°) Indemnités de déplacement</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td class="textLeft">Nombre</td>
+                                        <td class="textLeft">Taux</td>
+                                        <td class="textLeft">Total</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="textLeft">Découcher</td>
+                                        <td class="textRight">0</td>
+                                        <td class="textRight">0</td>
+                                        <td class="textRight">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="textLeft">Repas de midi</td>
+                                        <td class="textRight">0</td>
+                                        <td class="textRight">0</td>
+                                        <td class="textRight">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="textLeft">Repas de soir</td>
+                                        <td class="textRight">0</td>
+                                        <td class="textRight">0</td>
+                                        <td class="textRight">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td class="textLeft">S/TOTAL (I)</td>
+                                        <td class="textRight">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="height: 60px;">
+                                            <table class="table1  tdExecpt">
+                                                <tbody>
+                                                    <tr><td colspan="4" class="textLeft tdExecpt">2°) Indemnités kilométriques</td></tr>
+                                                    <tr>
+                                                        <td class="textLeft tdExecpt">@Html.DisplayFor(model => model.moyenTransport)</td>
+                                                        <td class="textLeft tdExecpt">@Html.DisplayFor(model => model.matricule)</td>
+                                                        <td class="textLeft tdExecpt">Puissance</td>
+                                                        <td class="tdExecpt">@Html.DisplayFor(model => model.nombreCheuvaux)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td class="textLeft">Nombre</td>
+                                        <td class="textLeft">Taux</td>
+                                        <td class="textLeft">Total</td>
+                                    </tr>
+                                <td class="textLeft">*Kms sur route</td>
+                                <td class="textRight"> @ViewData["kms"]  </td>
+                                <td class="textRight">@ViewData["taux"]</td>
+                                <td class="textRight">@ViewData["total"]</td>
                                 <tr>
-                                    <td colspan="4" style="height: 60px;" class="textLeft">1°) Indemnités de déplacement</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td class="textLeft">Nombre</td>
-                                    <td class="textLeft">Taux</td>
-                                    <td class="textLeft">Total</td>
-                                </tr>
-                                <tr>
-                                    <td class="textLeft">Découcher</td>
-                                    <td class="textRight">0</td>
-                                    <td class="textRight">0</td>
-                                    <td class="textRight">0</td>
-                                </tr>
-                                <tr>
-                                    <td class="textLeft">Repas de midi</td>
-                                    <td class="textRight">0</td>
-                                    <td class="textRight">0</td>
-                                    <td class="textRight">0</td>
-                                </tr>
-                                <tr>
-                                    <td class="textLeft">Repas de soir</td>
-                                    <td class="textRight">0</td>
-                                    <td class="textRight">0</td>
-                                    <td class="textRight">0</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
+                                    <td class="textLeft">*Kms sur route</td>
+                                    <td class="textRight">&nbsp;</td>
+                                    <td class="textRight">&nbsp;</td>
+                                    <td class="textRight">&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td class="textLeft">S/TOTAL (I)</td>
-                                    <td class="textRight">0</td>
+
+                                    <td class="textRight">@ViewData["total"]</td>
                                 </tr>
-                                <tr>
-                                    <td colspan="4" style="height: 60px;">
-                                        <table class="table1  tdExecpt">
-                                            <tbody>
-                                                <tr><td colspan="4" class="textLeft tdExecpt">2°) Indemnités kilométriques</td></tr>
-                                                <tr>
-                                                    <td class="textLeft tdExecpt">@Html.DisplayFor(model => model.moyenTransport)</td>
-                                                    <td class="textLeft tdExecpt">@Html.DisplayFor(model => model.matricule)</td>
-                                                    <td class="textLeft tdExecpt">Puissance</td>
-                                                    <td class="tdExecpt">@Html.DisplayFor(model => model.nombreCheuvaux)</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td class="textLeft">Nombre</td>
-                                    <td class="textLeft">Taux</td>
-                                    <td class="textLeft">Total</td>
-                                </tr>
-                            <td class="textLeft">*Kms sur route</td>
-                            <td class="textRight"> @ViewData["kms"]  </td>
-                            <td class="textRight">@ViewData["taux"]</td>
-                            <td class="textRight">@ViewData["total"]</td>
+                </tbody>
+            </table>
+            <!-- DivTable.com -->
+            </td>
+            </tr>
+            <tr class="tdExecptTop">
+                <td>
+                    <table class="table1 tb1">
+                        <tbody>
                             <tr>
-                                <td class="textLeft">*Kms sur route</td>
-                                <td class="textRight">&nbsp;</td>
-                                <td class="textRight">&nbsp;</td>
-                                <td class="textRight">&nbsp;</td>
+                                <td style="height: 30px;" class="textLeft tdExecpt">3°) Frais de tronsport</td>
+                                <td class="tdExecptLift"></td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td class="textLeft">S/TOTAL (I)</td>
-                                
-                                <td class="textRight">@ViewData["total"]</td>
+                                <td colspan="4" class="textLeft">
+                                    <table class="table1 tdExecpt">
+                                        <tbody>
+                                            <tr>
+                                                <td class="tdExecpt">&nbsp;</td>
+                                                <td class="tdExecpt">&nbsp;</td>
+                                                <td class="textLeft tdExecpt">Aller : &nbsp; @ViewData["aller"]</td>
+                                                <td class="tdExecpt">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tdExecpt">&nbsp;</td>
+                                                <td class="tdExecpt">&nbsp;</td>
+                                                <td class="textLeft tdExecpt">Retour : &nbsp;@ViewData["retour"]</td>
+                                                <td class="tdExecpt">&nbsp;</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
                             </tr>
-</tbody>
-                        </table>
-                        <!-- DivTable.com -->
-                    </td>
-                </tr>
-                <tr class="tdExecptTop">
-                    <td>
-                        <table class="table1 tb1">
-                            <tbody>
-                                <tr>
-                                    <td style="height: 30px;" class="textLeft tdExecpt">3°) Frais de tronsport</td>
-                                    <td class="tdExecptLift"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4" class="textLeft">
-                                        <table class="table1 tdExecpt">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="tdExecpt">&nbsp;</td>
-                                                    <td class="tdExecpt">&nbsp;</td>
-                                                    <td class="textLeft tdExecpt">Aller : &nbsp; @ViewData["aller"]</td>
-                                                    <td class="tdExecpt">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="tdExecpt">&nbsp;</td>
-                                                    <td class="tdExecpt">&nbsp;</td>
-                                                    <td class="textLeft tdExecpt">Retour : &nbsp;@ViewData["retour"]</td>
-                                                    <td class="tdExecpt">&nbsp;</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tdExecpt">S/TOTAL (III)</td>
-                                    <td class="tdExecptLift">00.0</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
+                            <tr>
+                                <td class="tdExecpt">S/TOTAL (III)</td>
+                                <td class="tdExecptLift">00.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
             </tbody>
-            <table class="table2 tdExecpt">
+            <table class="table3 tdExecpt">
                 <tbody>
                     <tr>
                         <td colspan="3" class="tdExecpt">TOTAL(I+II+III)</td>
@@ -301,32 +340,144 @@
                     </tr>
                 </tbody>
             </table>
-        </table>
-    </div>
-    <br>
-    <div class="underTable">
-        <div>
-            <p>Le Présent état s'élève à la somme de :</p>
+            </table>
         </div>
-        <div class="prix">
-            <pre class="borderStyle">@ViewData["total"]   dirhams, 00 cts</pre>
-        </div>
-    </div>
-    <br><br>
-    <div style="margin-left: 30px;">
-        <p>Le bénéficaire atteste, n'avoir bénéficier d'aucune prise en charge total ou partielle de la part de la partie inviantante</p>
-        <br><br><br>
-        <p>Le sous ordonnateur soussigné, certifie l'exactitude des renseignements portés au présent état</p>
         <br>
-        <div style="margin-left:630px;">
-            <p>
-                Safi, Le @ViewData["date"]
-            </p>
+        <div class="underTable">
+            <div>
+                <p>Le Présent état s'élève à la somme de :</p>
+            </div>
+            <div class="prix">
+                <pre class="borderStyle">@ViewData["total"]   dirhams, 00 cts</pre>
+            </div>
         </div>
+        <br><br>
+        <div style="margin-left: 30px;">
+            <p>Le bénéficaire atteste, n'avoir bénéficier d'aucune prise en charge total ou partielle de la part de la partie inviantante</p>
+            <br><br><br>
+            <p>Le sous ordonnateur soussigné, certifie l'exactitude des renseignements portés au présent état</p>
+            <br>
+            <div style="margin-left:630px;">
+                <p>
+                    Safi, Le @ViewData["date"]
+                </p>
+            </div>
 
-    </div>
+        </div>
+        <!--la grille -->
+
+        <br />
+        <br /><br /><br /><br />
+        <br /><br /><br /><br /><br />
+        <section class="sectionGrille">
+
+            <table class="tableGrile">
+                <thead>
+                    <tr>
+                        <th rowspan="3" class="thClass">D<br>A<br>T<br>E</th>
+                        <th rowspan="3" class="thClass">INDICATION<br>DES<br>DEPLACEMENTS</th>
+                        <th colspan="4"><br><br><br></th>
+                        <th colspan="6"><br><br><br></th>
+
+                    </tr>
+                    <tr class="trExecptbottom">
+                        <td class=" tdExecptLift">HEURE</td>
+                        <td class="trExecptbottom">D</td>
+                        <td>D</td>
+                        <td>D</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>OBSERVATIONS</td>
+                    </tr>
+
+
+                </thead>
+
+                <tbody>
+
+
+                    @{ int l = ViewBag.size;
+
+                        for (int i = 1; i <= 31; i++)
+                        {
+
+                            if (l > 0)
+                            {
+                                if (@ViewBag.list[l - 1].day == i)
+                                {
+            <tr>
+                <td>@i</td>
+                <td style="text-align:center;"> @ViewBag.list[l - 1].ville1 - @ViewBag.list[l - 1].ville2 </td>
+                <td style="text-align:center;"> @ViewBag.list[l - 1].heure</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> @ViewBag.list[l - 1].distance Km</td>
+
+            </tr>
+ l--;
+        }
+
+        else
+        {
+<tr>
+    <td>@i</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+ }
+}
+else
+{
+<tr>
+    <td>@i</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+ }
+} }
+
+                </tbody>
+
+            </table>
+
+            <p class="paragraph">
+                Indiquer le nombre (1) seulememnt dans les colonnes por les déjeuners(1114 à 1414), le repas du soir </br>
+                (19H a 21H), le découcher (0H a 5H), indemnité de panier indemnité de tente.</br>
+                Utliser des imprimés séparés selon qu'il s'agit des 30 premiers jours(100% de l'indemnité)</br>
+                du 31 au 90éme jour(80% de l'indemnité)
+            </p>
+
+
+        </section>
+
 
 </body>
 
 </html>
-

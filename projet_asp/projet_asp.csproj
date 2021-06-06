@@ -145,6 +145,7 @@
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\DbContextIndimnite.cs" />
     <Compile Include="Models\Grades.cs" />
+    <Compile Include="Models\GrilleKilo.cs" />
     <Compile Include="Models\grilleTb.cs" />
     <Compile Include="Models\OrdreMission.cs" />
     <Compile Include="Models\OrdrePaiement.cs" />
@@ -209,6 +210,7 @@
     <Content Include="Content\assets\images\big\img5.jpg" />
     <Content Include="Content\assets\images\big\img6.jpg" />
     <Content Include="Content\assets\images\custom-select.png" />
+    <Content Include="Content\assets\images\ensasLogo.png" />
     <Content Include="Content\assets\images\favicon.png" />
     <Content Include="Content\assets\images\logo-icon.png" />
     <Content Include="Content\assets\images\logo-text.png" />
@@ -3147,6 +3149,7 @@
     <Content Include="Views\Ordre\Test.cshtml" />
     <Content Include="Views\Ordre\choixKilometrage.cshtml" />
     <Content Include="Views\Ordre\GrileDeplacement.cshtml" />
+    <Content Include="Views\OrdreMissions\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
